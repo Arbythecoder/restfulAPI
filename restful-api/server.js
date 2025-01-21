@@ -14,6 +14,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Define a root route to handle base URL requests
+app.get("/", (req, res) => {
+  res.send("Welcome to the RESTful API! Use /api/items to access the items endpoint.");
+});
+
 // Routes
 app.use("/api/items", require("./routes/Item"));
 
