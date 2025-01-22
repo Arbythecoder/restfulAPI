@@ -14,14 +14,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Define a root route to handle base URL requests
 app.get("/", (req, res) => {
-  res.send("Welcome to the RESTful API! Use /api/items to access the items endpoint.");
+  res.send("Welcome to the RESTful API!");
 });
 
 // Routes
 app.use("/api/items", require("./routes/Item"));
 
-// Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
